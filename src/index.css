@@ -1,0 +1,402 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  overscroll-behavior-y: none;
+}
+
+/* Enhanced section transitions */
+section {
+  position: relative;
+  z-index: 1;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  transition: all 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+} 
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  overflow-y: auto;
+  scroll-padding-top: 80px;
+}
+
+/* Enhanced scroll animations */
+.scroll-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform, opacity;
+}
+
+.scroll-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth transition utilities */
+.transition-smooth {
+  transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  transition-duration: 300ms;
+}
+
+/* Enhanced backdrop blur */
+.backdrop-blur-smooth {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Prevent white flash during scroll */
+.prevent-flash {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Enhanced GPU acceleration */
+.transform-gpu {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform;
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Perspective utilities */
+.perspective-1000 {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Enhanced 3D transforms */
+.transform-3d {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+/* Enhanced parallax effects */
+.parallax-scroll {
+  transform: translateZ(0);
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.parallax-scroll-fast {
+  transform: translateZ(-8px) scale(1.8);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.parallax-scroll-slow {
+  transform: translateZ(4px) scale(0.8);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Enhanced parallax layers */
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.parallax-layer-deep {
+  transform: translateZ(-16px) scale(2.6);
+}
+
+.parallax-layer-medium {
+  transform: translateZ(-8px) scale(1.8);
+}
+
+.parallax-layer-shallow {
+  transform: translateZ(-4px) scale(1.4);
+}
+
+/* Enhanced perspective container */
+.perspective-container {
+  perspective: 2000px;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+}
+
+/* Enhanced smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  overflow-y: auto;
+  scroll-padding-top: 80px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize animations for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .parallax-scroll,
+  .parallax-scroll-fast,
+  .parallax-scroll-slow,
+  .parallax-layer,
+  .scroll-section {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Enhanced floating animations */
+@keyframes float-smooth {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  25% { transform: translateY(-15px) rotate(2deg); }
+  75% { transform: translateY(15px) rotate(-2deg); }
+}
+
+.float-smooth {
+  animation: float-smooth 6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+/* Glowing text effect */
+.text-glow {
+  text-shadow: 0 0 10px currentColor;
+  animation: text-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes text-glow {
+  from { text-shadow: 0 0 10px currentColor; }
+  to { text-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
+}
+
+/* Hero text responsive sizing */
+.hero-title {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: clamp(5rem, 10vw, 9rem);
+  }
+}
+
+/* Enhanced gradient text */
+.gradient-text-white-red {
+  background: linear-gradient(135deg, #ffffff 0%, #ff0000 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-text-red-black {
+  background: linear-gradient(135deg, #ff0000 0%, #000000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+/* Parallax base styles */
+.parallax-container {
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform-style: preserve-3d;
+}
+
+.parallax-layer-back {
+  transform: translateZ(-10px) scale(2);
+}
+
+.parallax-layer-base {
+  transform: translateZ(0);
+  z-index: 2;
+}
+
+/* Enhanced section transitions */
+.section-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.section-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Enhanced animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px) rotate(3deg);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float {
+  animation: float 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(to right, #ffffff, #ff0000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Enhanced glow effects */
+.glow-white {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.glow-red {
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+/* Animation classes */
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.2) rotate(10deg);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.8) rotate(-10deg);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+/* Loading animation */
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #FFF;
+  border-bottom-color: #FF3D00;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 3D model container */
+.model-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Glow effects */
+.glow-red {
+  filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.8));
+}
+
+.glow-blue {
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.8));
+}
+
+/* Parallax effect */
+.parallax {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Enhanced button styles */
+.button-glow {
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.button-glow:hover {
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(255, 0, 0, 0.2);
+}
